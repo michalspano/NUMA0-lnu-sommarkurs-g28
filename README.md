@@ -1,9 +1,9 @@
 # NUMA0-lnu-sommarkurs-g28
 
-**Kurs**: `Computational Programming with Python, Summer 2024`
-**Members**: @michalspano, @danaghafour
+- **Kurs / Course**: `Computational Programming with Python, Summer 2024`
+- **Medlemmar / Members**: @michalspano, @danaghafour
 
-## Homeworks
+## Inlämningar (Homework)
 
 - [`hw1`](https://github.com/michalspano/NUMA0-lnu-sommarkurs-g28/tree/hw1)
 
