@@ -25,8 +25,8 @@ def approx_ln(x: float, n: int) -> float:
     # Initialize the mean values
     a, g = (1 + x) / 2, sqrt(x)
     
-    # Iterate in n steps
-    for _ in range(n):
+    # Iterate in n+1 steps
+    for _ in range(n + 1):
         a = (a + g) / 2
         g = sqrt(a * g)
     
@@ -96,22 +96,34 @@ def task3() -> None:
     plt.show()
 
 
-# TODO: finish this implementation
 def fast_approx_ln(x: float, n: int) -> float:
+    """
+    Task 4: this function implements the raid method from the article to
+    accelerate the convergence. It improves the initially developed algorithm
+    to approximate ln(x).
     """
     if x <= 0:
         raise ValueError("The input value must be greater than 0.")
-    """
-
-    # Initialize the mean values
-    a, g = (1 + x) / 2, sqrt(x)
-    d = 1 # some dummy value
-
-    """
-    FIXME: missing implementation
-    """
     
-    return (x-1) / d
+    # Initial mean values
+    a, g = (1 + x) / 2, sqrt(x)
+    
+    # Initialize '(n+1) x (n+1)' array called `d`
+    d = [[0.0 for _ in range(n + 1)] for _ in range(n + 1)]
+    
+    # Iterate in n+1 steps, instantiate d_{0,i}
+    for i in range(n + 1):
+        d[0][i] = a
+        a = (a + g) / 2
+        g = sqrt(a * g)
+    
+    # Compute remaining d_{k,i} s.t. k = 1..i, whenever i > 0.
+    for i in range(1, n + 1):
+        for k in range(1, i + 1):
+            d[k][i] = (d[k - 1][i] - 4**(-k) * d[k - 1][i-1]) / (1 - 4**(-k))
+    
+    # An approximation to ln(x) is taken as the following
+    return (x - 1) / d[n][n]
 
 
 def accelerated_log_plot() -> None:
@@ -141,5 +153,5 @@ if __name__ == "__main__":
     # plot_func()
     # plot_func(diff_mode=True)
     # task3()
-    accelerated_log_plot()
+    pass
 
