@@ -5,7 +5,8 @@
 
 ## Inlämningar (Homework)
 
-- [`hw1`](https://github.com/michalspano/NUMA0-lnu-sommarkurs-g28/tree/hw1)
+- [`hw1`](https://github.com/michalspano/NUMA0-lnu-sommarkurs-g28/blob/main/hw1/Homework%201.ipynb)
+- [`hw2`](https://github.com/michalspano/NUMA0-lnu-sommarkurs-g28/blob/main/hw2/Homework%202.ipynb)
 
 > [!NOTE]
 > **Solutions** for each homework instance are distributed under `hwX`, where
